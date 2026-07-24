@@ -1,0 +1,5 @@
+# Godot editor generated files
+.godot/
+*.translation
+*.import
+exports/

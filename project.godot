@@ -1,0 +1,24 @@
+; Engine configuration for "Word Tower Defense" - AI English learning game
+; Created by Hermes Agent
+
+config_version=5
+
+[application]
+config/name="Word Tower Defense"
+config/description="塔防背单词 - 通过游戏学习高中英语词汇"
+run/main_scene="res://scenes/main_menu.tscn"
+config/features=PackedStringArray("4.0")
+config/icon="res://icon.svg"
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/dpi/allow_hidpi=true
+
+[autoload]
+GameState="res://scripts/game_state.gd"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"

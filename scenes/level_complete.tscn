@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://level_complete"]
+
+[node name="LevelComplete" type="Control"]
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1280
+offset_bottom = 720
+color = Color(0.05, 0.15, 0.08, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250
+offset_top = -200
+offset_right = 250
+offset_bottom = 200
+theme_override_constants/separation = 20
+
+[node name="LevelLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+text = "第 1 关通关！"
+
+[node name="MessageLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+text = "🎉 太棒了！"
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+text = "总分: 0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="NextButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 22
+text = "➡️ 下一关"
+
+[node name="QuizButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 22
+text = "📝 做试卷"
+
+[node name="MenuButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 22
+text = "🏠 主菜单"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/NextButton" to="scripts/level_complete.gd" method="_on_next_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/QuizButton" to="scripts/level_complete.gd" method="_on_quiz_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MenuButton" to="scripts/level_complete.gd" method="_on_menu_button_pressed"]
+
+[ext_resource type="script" path="res://scripts/level_complete.gd" id="1_f7s2q"]

@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://game_scene"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1280
+offset_bottom = 720
+color = Color(0.15, 0.15, 0.25, 1)
+
+[node name="EnemyPath" type="Path2D" parent="."]
+position = Vector2(0, 300)
+
+[node name="Curve2D" type="Curve2D" parent="EnemyPath"]
+_data = {
+"points": PackedVector2Array(0, 0, 1280, 0, 640, 0, 640, 0)
+}
+[resource]
+script = ExtResource("1_xy8mj")
+_bake_resolution = 64
+_forward_lookahead = 4
+
+[node name="PathFollow2D" type="PathFollow2D" parent="EnemyPath"]
+loop = false
+
+[node name="TowerBase" type="Sprite2D" parent="."]
+position = Vector2(640, 500)
+scale = Vector2(2, 2)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="HBoxContainer" parent="UI"]
+anchors_preset = 0
+offset_left = 20
+offset_top = 20
+theme_override_constants/separation = 30
+
+[node name="HPBar" type="TextureProgressBar" parent="UI/HUD"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+theme_override_styles/background = SubResource(1)
+theme_override_styles/fill = SubResource(2)
+max = 100
+value = 100
+
+[node name="HPLabel" type="Label" parent="UI/HUD"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "❤️ 10/10"
+
+[node name="ScoreLabel" type="Label" parent="UI/HUD"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "⭐ 0"
+
+[node name="LevelLabel" type="Label" parent="UI/HUD"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "第 1 关"
+
+[node name="WaveLabel" type="Label" parent="UI/HUD"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "波次: 0/3"
+
+[node name="EnemyDisplay" type="VBoxContainer" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300
+offset_top = -150
+offset_right = 300
+offset_bottom = -50
+
+[node name="EnemyLabel" type="Label" parent="UI/EnemyDisplay"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+text = "等待敌人..."
+
+[node name="SpellPanel" type="VBoxContainer" parent="UI/EnemyDisplay"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="HintLabel" type="Label" parent="UI/EnemyDisplay/SpellPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+text = "提示: 输入英文单词"
+
+[node name="SpellInput" type="LineEdit" parent="UI/EnemyDisplay/SpellPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 28
+placeholder_text = "在这里输入英文..."
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="MessageLabel" type="Label" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -300
+offset_top = -60
+offset_right = 300
+offset_bottom = -10
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+text = "准备开始！"
+
+[node name="TowerVisual" type="Sprite2D" parent="UI"]
+position = Vector2(640, 500)
+scale = Vector2(3, 3)
+
+[connection signal="text_submitted" from="UI/EnemyDisplay/SpellPanel/SpellInput" to="scripts/game.gd" method="_on_spell_submitted"]
+
+[ext_resource type="script" path="res://scripts/game.gd" id="1_xy8mj"]
+
+[sub_resource type="StyleBoxFlat" id="1"]
+bg_color = Color(0.3, 0.05, 0.05, 1)
+
+[sub_resource type="StyleBoxFlat" id="2"]
+bg_color = Color(0.1, 0.8, 0.1, 1)

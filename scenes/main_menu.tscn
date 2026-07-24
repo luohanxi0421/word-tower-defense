@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://main_menu"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1280
+offset_bottom = 720
+color = Color(0.1, 0.1, 0.2, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200
+offset_top = -200
+offset_right = 200
+offset_bottom = 200
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+text = "🔤 单词塔防"
+vertical_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+text = "拼写正确，消灭敌人！"
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 28
+text = "🎮 开始游戏"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "退出"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="scripts/main_menu.gd" method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="scripts/main_menu.gd" method="_on_quit_button_pressed"]

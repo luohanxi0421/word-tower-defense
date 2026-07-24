@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://video_lesson"]
+
+[node name="VideoLesson" type="Control"]
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1280
+offset_bottom = 720
+color = Color(0.1, 0.1, 0.15, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400
+offset_top = -250
+offset_right = 400
+offset_bottom = 250
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+text = "📺 视频教学"
+
+[node name="VideoPlaceholder" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(800, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+color = Color(0.2, 0.2, 0.3, 1)
+
+[node name="VideoLabel" type="Label" parent="VBoxContainer/VideoPlaceholder"]
+layout_mode = 0
+offset_left = 300
+offset_top = 180
+offset_right = 500
+offset_bottom = 220
+theme_override_font_sizes/font_size = 24
+text = "🎬 视频播放区域"
+
+[node name="DescriptionLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+text = "这里将嵌入单词记忆技巧教学视频"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="SkipButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+text = "⏭️ 跳过，开始游戏"
+
+[node name="BackButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+text = "🔙 返回"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/SkipButton" to="scripts/video_lesson.gd" method="_on_skip_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BackButton" to="scripts/video_lesson.gd" method="_on_back_button_pressed"]
+
+[ext_resource type="script" path="res://scripts/video_lesson.gd" id="1_mry8d"]
