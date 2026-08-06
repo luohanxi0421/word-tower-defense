@@ -1,6 +1,14 @@
-[gd_scene format=3 uid="uid://video_lesson"]
+[gd_scene load_steps=2 format=3 uid="uid://video_lesson"]
+
+[ext_resource type="Script" path="res://scripts/video_lesson.gd" id="1_vl"]
 
 [node name="VideoLesson" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vl")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -67,7 +75,5 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 22
 text = "🔙 返回"
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/SkipButton" to="scripts/video_lesson.gd" method="_on_skip_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/BackButton" to="scripts/video_lesson.gd" method="_on_back_button_pressed"]
-
-[ext_resource type="script" path="res://scripts/video_lesson.gd" id="1_mry8d"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/SkipButton" to="." method="_on_skip_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

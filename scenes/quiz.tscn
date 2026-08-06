@@ -1,6 +1,14 @@
-[gd_scene format=3 uid="uid://quiz"]
+[gd_scene load_steps=2 format=3 uid="uid://quiz"]
+
+[ext_resource type="Script" path="res://scripts/quiz.gd" id="1_quiz"]
 
 [node name="Quiz" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_quiz")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -101,10 +109,4 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 20
 text = "🔙 返回主菜单"
 
-[connection signal="pressed" from="VBoxContainer/Options/AButton" to="scripts/quiz.gd" method="_on_option_pressed" binds=""]
-[connection signal="pressed" from="VBoxContainer/Options/BButton" to="scripts/quiz.gd" method="_on_option_pressed" binds=""]
-[connection signal="pressed" from="VBoxContainer/Options/CButton" to="scripts/quiz.gd" method="_on_option_pressed" binds=""]
-[connection signal="pressed" from="VBoxContainer/Options/DButton" to="scripts/quiz.gd" method="_on_option_pressed" binds=""]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/BackButton" to="scripts/quiz.gd" method="_on_back_button_pressed"]
-
-[ext_resource type="script" path="res://scripts/quiz.gd" id="1_3uv5z"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

@@ -1,6 +1,14 @@
-[gd_scene format=3 uid="uid://level_complete"]
+[gd_scene load_steps=2 format=3 uid="uid://level_complete"]
+
+[ext_resource type="Script" path="res://scripts/level_complete.gd" id="1_lc"]
 
 [node name="LevelComplete" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lc")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -68,8 +76,6 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 22
 text = "🏠 主菜单"
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/NextButton" to="scripts/level_complete.gd" method="_on_next_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/QuizButton" to="scripts/level_complete.gd" method="_on_quiz_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/MenuButton" to="scripts/level_complete.gd" method="_on_menu_button_pressed"]
-
-[ext_resource type="script" path="res://scripts/level_complete.gd" id="1_f7s2q"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/QuizButton" to="." method="_on_quiz_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

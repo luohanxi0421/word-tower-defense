@@ -18,7 +18,7 @@ window/size/window_height_override=720
 window/dpi/allow_hidpi=true
 
 [autoload]
-GameState="res://scripts/game_state.gd"
+GameState="*res://scripts/game_state.gd"
 
 [rendering]
 renderer/rendering_method="gl_compatibility"

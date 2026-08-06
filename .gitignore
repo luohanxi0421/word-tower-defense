@@ -3,3 +3,6 @@
 *.translation
 *.import
 exports/
+
+# Local Claude Code tooling config (not part of the game)
+.claude/

@@ -1,6 +1,14 @@
-[gd_scene format=3 uid="uid://game_over"]
+[gd_scene load_steps=2 format=3 uid="uid://game_over"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_go"]
 
 [node name="GameOver" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_go")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -53,7 +61,5 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 22
 text = "🏠 主菜单"
 
-[connection signal="pressed" from="VBoxContainer/RetryButton" to="scripts/game_over.gd" method="_on_retry_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/MenuButton" to="scripts/game_over.gd" method="_on_menu_button_pressed"]
-
-[ext_resource type="script" path="res://scripts/game_over.gd" id="1_3p9cw"]
+[connection signal="pressed" from="VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
